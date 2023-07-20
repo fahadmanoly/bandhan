@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'djoser',
     'useraccount',
 
 ]
@@ -84,12 +83,12 @@ DATABASES = {
     }
 }
 
-EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST='smtp.gmail.com'
-EMAIL_PORT=587
-EMAIL_HOST_USER='fahadmanoly@gmail.com'
-EMAIL_HOST_PASSWORD='rhfuorcbbiqoivul'
-EMAIL_USE_TLS=True
+# EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST='smtp.gmail.com'
+# EMAIL_PORT=587
+# EMAIL_HOST_USER='fahadmanoly@gmail.com'
+# EMAIL_HOST_PASSWORD='rhfuorcbbiqoivul'
+# EMAIL_USE_TLS=True
 
 
 # Password validation
@@ -135,20 +134,20 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication'),
 }
 
-SIMPLE_JWT = {
-   'AUTH_HEADER_TYPES': ('JWT',),
-}
+# SIMPLE_JWT = {
+#    'AUTH_HEADER_TYPES': ('JWT',),
+# }
 
-DJOSER = {
-    'LOGIN_FIELD':'email',
-    'USER_CREATE_PASSWORD_RETYPE':True,
-    'PASSWORD_CHANGED_EMAIL_COONFIRMATION':True,
-    'SET_PASSWORD_RETYPE': True,
-    'PASSWORD_RESET_CONFIRM_URL':'password/reset/confirm/{uid}/{token}',
-    'ACTIVATION_URL':'activate/{uid}/{token}',
-    'SEND_ACTIVATION_EMAIL':True,
-    'SERIALIZERS':{},
-}
+# DJOSER = {
+#     'LOGIN_FIELD':'email',
+#     'USER_CREATE_PASSWORD_RETYPE':True,
+#     'PASSWORD_CHANGED_EMAIL_COONFIRMATION':True,
+#     'SET_PASSWORD_RETYPE': True,
+#     'PASSWORD_RESET_CONFIRM_URL':'password/reset/confirm/{uid}/{token}',
+#     'ACTIVATION_URL':'activate/{uid}/{token}',
+#     'SEND_ACTIVATION_EMAIL':True,
+#     'SERIALIZERS':{},
+# }
 
 
 AUTH_USER_MODEL = 'useraccount.Customer'
