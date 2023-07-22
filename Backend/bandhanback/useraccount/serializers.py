@@ -1,12 +1,12 @@
-import email
 from xml.dom import ValidationErr
-
 from django.forms import ValidationError
 from rest_framework import serializers
 from .models import User
 from django.utils.encoding import smart_str,force_bytes,DjangoUnicodeDecodeError
 from django.utils.http import urlsafe_base64_decode,urlsafe_base64_encode
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from  useraccount.utils import Util
+
 
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
@@ -71,7 +71,14 @@ class ForgotPasswordSerializer(serializers.Serializer):
             print('Password Reset Token',token)
             link = 'http://localhost:3000/api/user/reset/'+user_id+'/'+token
             print('password reset link',link)
-            #email link
+            #email link 
+            body='Click Following Link to Reset the Password'+link
+            data={
+                'subject':'Reset your password',
+                'body':body,
+                'to_email':user.email    
+            }
+            Util.send_email(data)
             return attrs            
         else:
             raise ValidationErr('The email provided is not registered')
